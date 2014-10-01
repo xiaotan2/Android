@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RecipeHelper</string>
+    <string name="recipe_title_hint">Enter a title for the recipe.</string>
+    <string name="recipe_title_label">Title</string>
+    <string name="recipe_details_label">Details</string>
+    <string name="recipe_done_label">Done?</string>
+    <string name="recipe_title">Recipes</string>
+    <string name="date_picker_title">Date of Recipe</string>
+    <string name="new_recipe">New Recipe</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle">If you want to cook, cook.</string>
+    <string name="delete_recipe">Delete</string>
+
+</resources>
