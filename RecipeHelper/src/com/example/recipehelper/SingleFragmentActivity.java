@@ -5,6 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
+/*
+ * an override of FragmentActivity. It sets UI view of a recipe and assigns
+ * fragment manager when being created
+ */
 public abstract class SingleFragmentActivity extends FragmentActivity {
 
 	protected abstract Fragment createFragment();

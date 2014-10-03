@@ -19,6 +19,10 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/*
+ * RecipeListFragment is the main UI. It is a fragment list that contains a list of recipe fragments
+ * It also has a option menu implementation to edit the list
+ */
 public class RecipeListFragment extends ListFragment {
 
 	private ArrayList<Recipe> mRecipes;
@@ -39,6 +43,9 @@ public class RecipeListFragment extends ListFragment {
 		mSubtitleVisible = false;
 	}
 	
+	/*
+	 * if there is subtitle, show the subtitle when view is created
+	 */
 	@TargetApi(11)
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
@@ -60,12 +67,18 @@ public class RecipeListFragment extends ListFragment {
 		startActivity(i);
 	}
 	
+	/*
+	 * implements RecipeAdapter, specifically override its get view to customize its UI view
+	 */
 	private class RecipeAdapter extends ArrayAdapter<Recipe> {
 		
 		public RecipeAdapter(ArrayList<Recipe> recipes) {
 			super(getActivity(), 0, recipes);
 		}
 		
+		/*
+		 * override getView to customize the view for each fragment that uses RecipeAdapter
+		 */		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if(convertView == null) {
@@ -90,18 +103,23 @@ public class RecipeListFragment extends ListFragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		// every time onResume, update UI with data changed
 		((RecipeAdapter)getListAdapter()).notifyDataSetChanged();
 	}
 	
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
+		// inflate a customized menu
 		inflater.inflate(R.menu.fragment_recipe_list, menu);
 		MenuItem showSubtitle = menu.findItem(R.id.menu_item_show_subtitle);
 		if(mSubtitleVisible && showSubtitle != null)
 			showSubtitle.setTitle(R.string.hide_subtitle);
 	}
 	
+	/*
+	 * implementation for each menu options
+	 */
 	@TargetApi(11)
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
